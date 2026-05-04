@@ -119,5 +119,9 @@ function gerarLinksLogin(){
     junteSe.classList.add("optionMenu")
     ajuda.classList.add("optionMenu")
 
+    entrar.href = '/SidebarArea/Login.html'
+    junteSe.href = '/SidebarArea/Join.html'
+    ajuda.href = '/SidebarArea/Help.html'
+
     return{entrar, junteSe, ajuda }
 }
