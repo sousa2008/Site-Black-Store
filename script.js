@@ -20,53 +20,16 @@ function addSidebar(){
     const sidebar = document.getElementById("sidebar")
     sidebar.innerHTML = ''
     
-
-    const aside = document.createElement("aside")
-    aside.classList.add("sidebar")
-    aside.id = "menu"
-
-    const divNav = document.createElement("div")
-    divNav.classList.add("navegacao")
-
-    const imgLogin = document.createElement("img")
-    imgLogin.src = "/img/icons/iconLogin.png"
-    imgLogin.classList.add("buttonlogin")
-    imgLogin.id ='buttonLogin'
-
-    const imgCompras = document.createElement("img")
-    imgCompras.src = "/img/icons/compras.png"
-    imgCompras.classList.add("buttonlogin")
-    imgCompras.id ='buttonCompras'
-
-    imgCompras.addEventListener("click", compras)
-    imgLogin.addEventListener("click", login)
+    const barra = criarAside()
     
-    divNav.appendChild(imgLogin)
-    divNav.appendChild(imgCompras)
-    
-    
-    
-    
-    const divOptions = document.createElement("div")
-    divOptions.classList.add("options")
-    divOptions.id = "menuOptions"
-
-    const links = gerarLinksLogin()
-    divOptions.appendChild(links.entrar)
-    divOptions.appendChild(links.junteSe)
-    divOptions.appendChild(links.ajuda)
 
 
-
-
-    
-    aside.appendChild(divNav)
-    aside.appendChild(divOptions)
-    sidebar.appendChild(aside)
+    sidebar.appendChild(barra.aside)
     
     return{sidebar}
 }
 
+/* gerando botões dentro das sidebar */
 
 function compras(){
     const menuOptions = document.getElementById("menuOptions")
@@ -90,6 +53,71 @@ function login(){
     menuOptions.appendChild(links.junteSe)
     menuOptions.appendChild(links.ajuda)
 }
+
+/*Criando parte a parte da sidebar */
+
+function criarAside(){
+    const aside = document.createElement("aside")
+    aside.classList.add("sidebar")
+    aside.id = "menu"
+
+    const nav = criarNav()
+    const options = gerarOptions()
+
+    aside.appendChild(nav.divNav)
+    aside.appendChild(options.divOptions)
+
+    return{aside}
+
+}
+
+function criarNav(){
+    const divNav = document.createElement("div")
+    divNav.classList.add("navegacao")
+
+
+    const imgs = gerarImagensMenu()
+    
+    divNav.appendChild(imgs.imgLogin)
+    divNav.appendChild(imgs.imgCompras)
+
+    return {divNav}
+
+}
+
+function gerarOptions(){
+    const divOptions = document.createElement("div")
+    divOptions.classList.add("options")
+    divOptions.id = "menuOptions"
+
+    const links = gerarLinksLogin()
+    divOptions.appendChild(links.entrar)
+    divOptions.appendChild(links.junteSe)
+    divOptions.appendChild(links.ajuda)
+
+    return {divOptions}
+}
+
+function gerarImagensMenu() {
+    const imgLogin = document.createElement("img")
+    imgLogin.src = "/img/icons/iconLogin.png"
+    imgLogin.classList.add("buttonlogin")
+    imgLogin.id ='buttonLogin'
+
+    const imgCompras = document.createElement("img")
+    imgCompras.src = "/img/icons/compras.png"
+    imgCompras.classList.add("buttonlogin")
+    imgCompras.id ='buttonCompras'
+
+    imgCompras.addEventListener("click", compras)
+    imgLogin.addEventListener("click", login)
+
+    return {imgCompras, imgLogin}
+    
+}
+
+/* links para colocar nos botôes */
+
 function gerarLinksCompras(){
     const minhasCompras = document.createElement("a")
     const meuCarrinho = document.createElement("a")
