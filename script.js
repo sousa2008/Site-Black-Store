@@ -100,12 +100,12 @@ function gerarOptions(){
 
 function gerarImagensMenu() {
     const imgLogin = document.createElement("img")
-    imgLogin.src = "/img/icons/iconLogin.png"
+    imgLogin.src = "img/icons/iconLogin.png"
     imgLogin.classList.add("buttonlogin")
     imgLogin.id ='buttonLogin'
 
     const imgCompras = document.createElement("img")
-    imgCompras.src = "/img/icons/compras.png"
+    imgCompras.src = "img/icons/compras.png"
     imgCompras.classList.add("buttonlogin")
     imgCompras.id ='buttonCompras'
 
@@ -147,9 +147,9 @@ function gerarLinksLogin(){
     junteSe.classList.add("optionMenu")
     ajuda.classList.add("optionMenu")
 
-    entrar.href = '/sidebar/login.html'
-    junteSe.href = '/sidebar/join.html'
-    ajuda.href = '/sidebar/help.html'
+    entrar.href = 'sidebar/login.html'
+    junteSe.href = 'sidebar/join.html'
+    ajuda.href = 'sidebar/help.html'
 
     return{entrar, junteSe, ajuda }
 }
