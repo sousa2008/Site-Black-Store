@@ -22,10 +22,10 @@ body{
     display: grid;
     grid-template-areas: 
         "header header"
-        "main sidebar"
+        "main main"
         "footer footer";
     grid-template-columns: 1fr minmax(200px, 250px);
-    grid-template-rows: 10% 1fr auto;
+    grid-template-rows: 7% 1fr auto;
     min-height: 100vh;
     
     
@@ -33,7 +33,11 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-
+h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--color-primary);   
+}
 h2{
     font-size: 36px;
     font-weight: 700;
@@ -113,11 +117,24 @@ section{
     height: 30px;
 }
 
+.voltar{
+    margin-right: auto;
+    margin: 2rem;
+
+    width: auto;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.voltar:hover{
+    width: auto;
+    height: 30px;
+}
+
 
 
 /*main*/
 
-/*inicio*/
 .main{
     grid-area: main;
     
@@ -129,39 +146,6 @@ section{
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-}
-.inicio{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: baseline;
-    
-    max-width: 500px;
-    width: 100%;
-    
-    padding: 1.5rem;
-    margin: 1.5rem;
-    gap: 1rem;
-    
-    border: var(--border-site);
-    border-radius: 10px;
-    
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.411);
-    background-color: var(--color-white);
-    
-}
-
-.conjuntoInicio{
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    
-    padding: 2rem;
-    margin-right: 2rem;
-    gap: 2rem;
-    
 }
 
 /*produtos*/
@@ -195,7 +179,7 @@ section{
     background-color: var(--color-white);
     
     width: 280px;
-    height: 300px;
+    height: 350px;
     
     padding: 1rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -215,11 +199,6 @@ section{
     width: 150px;
     height: 200px;
     margin: 10px;
-}
-
-.imgProd:hover{
-    margin: 25px;
-    image-rendering:optimizeQuality;
 }
 
 .botaoproduto{
@@ -265,65 +244,87 @@ section{
 .botaoview:hover{
     width: 250px;
     font-size: 17px;
+    padding-top: 100px;
     cursor: pointer;
     transform: scale(1.05);
 }
 
 
 
-/* sidebar*/
-.sidebar{
-    grid-area: sidebar;
-    
-    background: linear-gradient(to bottom, var(--color-secundary), var(--color-primary));
-    
-    display: flex;
-    flex-direction: column;
-    
-    padding: 2rem 1rem;
-    border-radius: 5px;
-    
+
+/* Aba carrinho */
+.cart{
+    background-color: var(--color-secundary);
+    position: fixed;
+    display: grid;
+    grid-template-areas: 
+    "title"
+    "cart"
+    "button";
+    grid-template-rows: 10% 1fr auto;
+
+    inset: 0 -400px 0 auto; /* Alinhas a esquerda*/
+
+    width: 300px;
 }
 
+.cartTitle{
+    font-size: 40px;
+    color: var(--color-primary);
+    grid-area: title;
+    
+    text-align: center;
+    margin-top: 20px;
+    padding: 2.5rem;
+    margin-top: 150px;
+}
 
-.navegacao{
+.cartContent{
+    grid-area: cart;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-}
-.options, .optionMenu{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 
+}
+.cartContent span{
     color: var(--color-white);
-    text-decoration: none;
-    font-size: 16px;
-    gap: 1rem;
-    margin-top: 1rem;
+    padding: 5px;
+}
+.spans span{
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    color: var(--color-white);
+}
+.cartImg{
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem;
+}
+.botaocart{
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-degrade));
+    color: var(--color-white);
+    grid-area: button;
+
+
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    
+    padding: 0.6rem 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: 100px;
+    
+    transition: all 0.3s ease;
 
 }
 
-.optionMenu:hover{
-    font-size: 20px;
+body.mostrarCarrinho .cart{
+    inset: 0 0 0 auto;
 }
 
-
-/*parte JS*/
-.buttonlogin{
-    width: 30px;
-    height: 30px;
-    border-color: var(--color-white);
-    cursor: pointer;
-}
-
-.buttonlogin:hover{
-    width: 40px;
-    height: 40px;
-}
 
 
 /*footer*/
